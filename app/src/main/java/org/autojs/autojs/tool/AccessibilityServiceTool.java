@@ -2,6 +2,8 @@ package org.autojs.autojs.tool;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
 
 import com.stardust.app.GlobalAppContext;
@@ -21,6 +23,21 @@ import java.util.Locale;
 public class AccessibilityServiceTool {
 
     private static final Class<AccessibilityService> sAccessibilityServiceClass = AccessibilityService.class;
+
+
+    public static boolean enableAccessibilityServiceBySystem() {
+        String serviceName = GlobalAppContext.get().getPackageName() + "/" + sAccessibilityServiceClass.getName();
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                Settings.Secure.putString(GlobalAppContext.get().getContentResolver(),Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES,serviceName);
+                Settings.Secure.putInt(GlobalAppContext.get().getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 1);
+                return true;
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+    }
 
     public static void enableAccessibilityService() {
         if (Pref.shouldEnableAccessibilityServiceByRoot()) {

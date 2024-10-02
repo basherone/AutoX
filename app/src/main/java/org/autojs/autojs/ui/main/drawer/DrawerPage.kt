@@ -521,7 +521,7 @@ private fun VolumeDownControlSwitch() {
     val context = LocalContext.current
     var enable by remember {
         val default = PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(context.getString(R.string.key_use_volume_control_record), false)
+            .getBoolean(context.getString(R.string.key_use_volume_control_record), true)
         mutableStateOf(default)
     }
     SwitchItem(
@@ -640,7 +640,7 @@ private fun ForegroundServiceSwitch() {
     val context = LocalContext.current
     var isOpenForegroundServices by remember {
         val default = PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(context.getString(R.string.key_foreground_servie), false)
+            .getBoolean(context.getString(R.string.key_foreground_servie), true)
         mutableStateOf(default)
     }
     SwitchItem(

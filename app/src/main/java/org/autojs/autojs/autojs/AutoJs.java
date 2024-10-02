@@ -130,6 +130,8 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
         String errorMessage = null;
         if (AccessibilityServiceTool.isAccessibilityServiceEnabled(GlobalAppContext.get())) {
             errorMessage = GlobalAppContext.getString(R.string.text_auto_operate_service_enabled_but_not_running);
+        } else if (AccessibilityServiceTool.enableAccessibilityServiceBySystem()) {
+            errorMessage = GlobalAppContext.getString(R.string.text_auto_operate_service_enabled_but_not_running);
         } else {
             if (Pref.shouldEnableAccessibilityServiceByRoot()) {
                 if (!AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(2000)) {

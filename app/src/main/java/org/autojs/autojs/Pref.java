@@ -28,7 +28,7 @@ public class Pref {
     private static final String KEY_EDITOR_NEW = "KEY_EDITOR_NEW";
 
     public static boolean getEditor() {
-        return def().getBoolean(KEY_EDITOR_NEW, true);
+        return def().getBoolean(KEY_EDITOR_NEW, false);
     }
 
     public static void setEditor(boolean shouldOpen) {
@@ -76,11 +76,11 @@ public class Pref {
     }
 
     public static boolean isRunningVolumeControlEnabled() {
-        return def().getBoolean(getString(R.string.key_use_volume_control_running), false);
+        return def().getBoolean(getString(R.string.key_use_volume_control_running), true);
     }
 
     public static boolean shouldEnableAccessibilityServiceByRoot() {
-        return def().getBoolean(getString(R.string.key_enable_accessibility_service_by_root), false);
+        return def().getBoolean(getString(R.string.key_enable_accessibility_service_by_root), true);
     }
 
     private static String getString(int id) {
@@ -193,7 +193,7 @@ public class Pref {
     }
 
     public static boolean isForegroundServiceEnabled() {
-        return def().getBoolean(getString(R.string.key_foreground_servie), false);
+        return def().getBoolean(getString(R.string.key_foreground_servie), true);
     }
 
     public static void setCode(String value) {
