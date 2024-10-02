@@ -41,10 +41,10 @@ jobs:
           signingKeyBase64: ${{ secrets.ASIGNING_KEY }}
           output: build/app/signed
           alias: ${{ secrets.AALIAS }}
-          keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
+          keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}  
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
-        env: 
-          BUILD_TOOLS_VERSION: "34.0.0"  
+        env:
+          BUILD_TOOLS_VERSION: "34.0.0"   
       - name: rename apk
         run: |
           cd build/app/signed
